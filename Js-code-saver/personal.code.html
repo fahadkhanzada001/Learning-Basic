@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>to-do-list game</title>
+
+
+
+</head>
+
+<body>
+
+
+    <!-- 
+    <script>
+        // Function jo hamari tasks list ko screen par dikhata hai //
+        const renderTasks = () => {
+            taskList.innerHTML = ""; // Purani list ko clear kar do //
+
+            // tasks array ke har element par loop lagana // 
+            // taskObj ek object hoga: { text: "Task ka naam", completed: true/false } //
+            // i uska index hoga array me //
+            tasks.forEach((taskObj, i) => {
+                const li = document.createElement("li"); // Har task ke liye ek <li> banate hain //
+
+                //   Create Checkbox //
+                const checkbox = document.createElement("input"); // Naya input banaya // 
+                checkbox.type = "checkbox"; // Checkbox banane ke liye type set kiya // 
+                checkbox.checked = taskObj.completed || false; // Agar completed true ho, to checked hoga //
+
+                //   Checkbox change event // 
+                checkbox.addEventListener("change", () => {
+                    taskObj.completed = checkbox.checked; // Completed status update karo // 
+                    li.classList.toggle("completed", taskObj.completed); // Agar complete ho to style lagao // 
+                });
+
+                //   Task ka Text // 
+                const taskText = document.createElement("span"); // Task text rakhne ke liye span // 
+                taskText.textContent = taskObj.text; // Span me task ka naam dal do //
+
+                //   Edit Button // 
+                const editBtn = document.createElement("button"); // Button banaya //
+                editBtn.textContent = "✎"; // Pencil icon //
+                editBtn.className = "edit-btn"; // CSS class //
+                editBtn.onclick = () => {
+                    input.value = taskObj.text; // Input me purana text daal do // 
+                    editIndex = i; // Edit mode ke liye index save karo //
+                    addBtn.textContent = "Update Task"; // Button ka naam badal do //
+                };
+
+                //   Delete Button //
+                const deleteBtn = document.createElement("button"); // Button banaya //
+                deleteBtn.textContent = "✖"; // Cross icon //
+                deleteBtn.className = "delete-btn"; // CSS class //
+                deleteBtn.onclick = () => {
+                    tasks.splice(i, 1); // i index ka task remove karo //
+                    renderTasks(); // List ko dobara render karo //
+                };
+
+                //   Agar task pehle se completed hai to style add karo //
+                if (taskObj.completed) {
+                    li.classList.add("completed");
+                }
+
+                //   Sab elements ko <li> ke andar add kar do //
+                li.appendChild(checkbox);  // Pehle checkbox  // 
+                li.appendChild(taskText);  // Phir text //
+                li.appendChild(editBtn);   // Phir edit button //
+                li.appendChild(deleteBtn); // Phir delete button // 
+
+                //   <li> ko taskList (UL) ke andar add karo // 
+                taskList.appendChild(li);
+            });
+        };
+
+        //  Function jo naya task add karega ya purana update karega //
+        const addOrUpdateTask = () => {
+            const task = input.value.trim(); // Input se value leke space remove karo // 
+            if (!task) return alert("Please enter a task!"); // Agar empty ho to alert // 
+
+            if (editIndex !== null) { // Agar edit mode me ho //
+                tasks[editIndex].text = task; // Purane task ka text update karo //
+                editIndex = null; // Edit mode band //
+                addBtn.textContent = "Add Task"; // Button ka naam reset karo //
+            } else {
+                // Naya task add karo object form me //
+                tasks.push({ text: task, completed: false });
+            }
+
+            input.value = ""; // Input box clear karo //
+            renderTasks(); // List dobara show karo //
+        };
+
+        //  Add button click hone par task add/update ho //
+        addBtn.onclick = addOrUpdateTask;
+
+        //  Enter key press par bhi task add/update ho //
+        input.addEventListener("keypress", (e) => {
+            if (e.key === "Enter") addOrUpdateTask();
+        });
+
+    </script> -->
+
+
+
+
+
+
+    <script>
+
+        // Task list render karne ka function
+        const renderTasks = () => {
+            taskList.innerHTML = ""; // Purani list clear kar dete hain taake dobara se render ho sake
+
+            // Har task ko loop karke render karenge
+            tasks.forEach((taskObj, i) => { // taskObj = current task ka object, i = uska index
+                const li = document.createElement("li"); // List item create karna
+
+                // ===== Checkbox create karna =====
+                const checkbox = document.createElement("input");
+                checkbox.type = "checkbox"; // Input ka type checkbox banaya
+                checkbox.checked = taskObj.completed || false; // Agar completed true hai to tick hoga
+
+                // Checkbox change hone par task ka completed status toggle hoga
+                checkbox.addEventListener("change", () => {
+                    taskObj.completed = checkbox.checked; // Status update karo
+                    li.classList.toggle("completed", taskObj.completed); // Class add/remove
+                });
+
+                // ===== Task ka text create karna =====
+                const taskText = document.createElement("span");
+                taskText.textContent = taskObj.text; // Span ke andar task ka naam
+
+                // ===== Edit button create karna =====
+                const editBtn = document.createElement("button");
+                editBtn.textContent = "✎"; // Pencil icon
+                editBtn.className = "edit-btn"; // Styling ke liye class
+                editBtn.onclick = () => { // Button click hone par
+                    input.value = taskObj.text; // Task ka text input box me daal dena
+                    editIndex = i; // Kaunsa task edit ho raha hai, uska index store karo
+                    addBtn.textContent = "Update Task"; // Button ka text change karo
+                };
+
+                // ===== Delete button create karna =====
+                const deleteBtn = document.createElement("button");
+                deleteBtn.textContent = "✖"; // Cross icon
+                deleteBtn.className = "delete-btn"; // Styling ke liye class
+                deleteBtn.onclick = () => { // Button click hone par
+                    tasks.splice(i, 1); // Array se task delete karo
+                    renderTasks(); // Dobara list refresh karo
+                };
+
+                // Agar task completed hai to 'completed' class add karo
+                if (taskObj.completed) {
+                    li.classList.add("completed");
+                }
+
+                // Har element ko li ke andar add karo
+                li.appendChild(checkbox);
+                li.appendChild(taskText);
+                li.appendChild(editBtn);
+                li.appendChild(deleteBtn);
+
+                // li ko task list me add karo
+                taskList.appendChild(li);
+            });
+        };
+
+        // Add ya update task ka function
+        const addOrUpdateTask = () => {
+            const task = input.value.trim(); // Input ka text le lo
+            if (!task) return alert("Please enter a task!"); // Agar empty hai to alert
+
+            if (editIndex !== null) { // Agar update mode me ho
+                tasks[editIndex].text = task; // Task ka text update karo
+                editIndex = null; // Reset edit mode
+                addBtn.textContent = "Add Task"; // Button ka text normal karo
+            } else { // Agar new task add ho raha ho
+                tasks.push({ text: task, completed: false }); // Array me new object push karo
+            }
+
+            input.value = ""; // Input box clear
+            renderTasks(); // List dobara render karo
+        };
+
+        // Add button click hone par task add/update ho
+        addBtn.onclick = addOrUpdateTask;
+
+        // Enter key press hone par bhi task add/update ho
+        input.addEventListener("keypress", (e) => {
+            if (e.key === "Enter") addOrUpdateTask();
+        });
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

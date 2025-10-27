@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="game.css">
+
+</head>
+
+<body>
+<div class="game-container">
+        <h2>Guess the Secret Word!</h2>
+        <p id="hint">Hint: ...</p>
+        <input type="text" id="userInput" placeholder="Enter your guess" autocomplete="off" autofocus>
+        <button onclick="checkGuess()">Guess</button>
+        <div class="result" id="resultDisplay"></div>
+    </div>
+    <script>
+        const words = [
+            { word: "apple", hint: "fruit" },
+            { word: "python", hint: "programming language" },
+            { word: "camera", hint: "photography" },
+            { word: "lion", hint: "animal" },
+            { word: "moon", hint: "space object" },
+            { word: "robot", hint: "technology" },
+            { word: "guitar", hint: "musical instrument" },
+            { word: "ocean", hint: "nature" },
+            { word: "computer", hint: "technology" },
+            { word: "phone", hint: "communication device" },
+            { word: "table", hint: "furniture" },
+            { word: "keyboard", hint: "computer accessory" },
+            { word: "television", hint: "entertainment device" },
+            { word: "mountain", hint: "nature" },
+            { word: "city", hint: "urban area" },
+            { word: "river", hint: "water body" },
+            { word: "cloud", hint: "weather phenomenon" },
+            { word: "sun", hint: "star" },
+            { word: "flower", hint: "plant" },
+            { word: "beach", hint: "coastal area" },
+            { word: "chair", hint: "furniture" },
+            { word: "desk", hint: "furniture" },
+            { word: "lamp", hint: "lighting" },
+            { word: "window", hint: "part of house" },
+            { word: "door", hint: "part of house" },
+            { word: "roof", hint: "part of house" },
+            { word: "wall", hint: "part of house" },
+            { word: "floor", hint: "part of house" },
+            { word: "ceiling", hint: "part of house" },
+            { word: "garden", hint: "outdoor area" }
+        ];
+
+        const randomIndex = Math.floor(Math.random() * words.length); // Randomly select a word from the array// 
+        const secretWord = words[randomIndex].word.toLowerCase();// Convert the selected word to lowercase for case-insensitive comparison//
+        const wordHint = words[randomIndex].hint;// hint for the selected word//
+
+        document.getElementById("hint").innerText = `Hint: ${wordHint}`;// Display the hint in the HTML element with the id "hint"//
+
+        function checkGuess() {
+            const userGuess = document.getElementById("userInput").value.toLowerCase();// Get the user's guess from the input field and convert it to lowercase for case-insensitive comparison//
+            let result = "";
+
+            for (let i = 0; i < secretWord.length; i++) { // loop check kar raha ke user se lia guss aur secret word ke letters match ho rahe hai ya nahi //
+                const letter = userGuess[i];
+                if (letter === secretWord[i]) {
+                    result += letter;
+                } else if (secretWord.includes(letter)) {
+                    result += "#";
+                } else {
+                    result += "~";
+                }
+            }
+
+
+            console.log("Your Guess Feedback:", result);
+            console.log("Secret Word:", secretWord);
+            console.log("User Guess:", userGuess);
+
+
+            const resultDisplay = document.getElementById("resultDisplay"); // html element jisme result display hoga //
+
+            if (userGuess === secretWord) {
+                resultDisplay.innerHTML = `Congratulations You guessed it right:${secretWord}`;
+            } else {
+                resultDisplay.innerHTML = `wrong guess your word Feedback: ${result}`;
+            }
+
+        }
+        console.log("Secret Word:", secretWord);
+
+        let input = document.getElementById("userInput"); // Get the input element by its ID "userInput"//
+        input.addEventListener("keypress", function (event) { // Add an event listener to the input element to listen for keypress events//
+            if (event.key === "Enter") { // Check if the pressed key is "Enter"//
+                event.preventDefault(); // Prevent the default action of the Enter key (which is to submit the form)//
+                checkGuess();
+            }
+        });
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="./to-do-list.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        /* .completed {
+            text-decoration: line-through;
+            color: gray;
+        } */
+
+        li {
+            margin: 8px 0;
+            list-style: none;
+        }
+
+        button {
+            margin-left: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="todo-card">
+        <h2>My To-Do List</h2>
+        <input type="text" id="taskInput" placeholder="Add your task" autofocus autocomplete="off" />
+        <button id="addTaskBtn">Add Task</button>
+        <ul id="taskList"></ul>
+    </div>
+
+    <div class="todo-text">
+        <h2 class="todo-text1">Build</h2>
+        <h2 class="todo-text2">To-Do List With</h2>
+        <h2 class="todo-text1">Fadi</h2>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            let tasks = [];
+            let editIndex = null;
+            console.log("Tasks:", tasks);
+            function renderTasks() {
+                $("#taskList").empty(); // ul clear
+
+                tasks.forEach((taskObj, i) => {
+                    console.log(taskObj, i)
+                    const li = $("<li></li>");
+
+
+                    // console.log("Task Object:", taskObj);
+                    console.log("Task Index:", i);
+
+                    // Checkbox
+                    const checkbox = $("<input type='checkbox'>")
+                        .prop("checked", taskObj.completed)
+
+                        .on("change", function () { // Checkbox change event
+                            taskObj.completed = this.checked;
+                            li.toggleClass("completed", taskObj.completed);
+                        });
+
+
+
+                    // Task text
+                    const taskText = $("<span></span>").text(taskObj.text);
+
+                    // Edit button
+                    const editBtn = $("<button>✎</button>")
+                        .addClass("edit-btn").on("click", function () {
+                            $("#taskInput").val(taskObj.text);
+                            editIndex = i;
+                            $("#addTaskBtn").text("Update Task");
+                        });
+
+                    // Delete button
+                    const deleteBtn = $("<button>✖</button>")
+                        .addClass("delete-btn")
+                        .on("click", function () {
+                            tasks.splice(i, 1);
+                            renderTasks();
+                        });
+
+
+                    // Completed check
+                    if (taskObj.completed) li.addClass("completed");
+
+                    li.append(checkbox, taskText, editBtn, deleteBtn);
+                    $("#taskList").append(li);
+                });
+            }
+
+            function addOrUpdateTask() {
+                const task = $("#taskInput").val().trim();
+                if (!task) return alert("Please enter a task!");
+
+                if (editIndex !== null) {
+                    tasks[editIndex].text = task;
+                    editIndex = null;
+                    $("#addTaskBtn").text("Add Task"); // Reset button text //
+                } else {
+                    tasks.push({ text: task, completed: false });
+                    console.log("hello fadi")
+                }
+
+                $("#taskInput").val("");
+                renderTasks();
+            }
+
+            // Button click
+            $("#addTaskBtn").on("click", addOrUpdateTask);
+
+            // Enter key press
+            $("#taskInput").on("keypress", function (e) {
+                if (e.key === "Enter") addOrUpdateTask();
+            });
+        });
+    </script>
+</body>
+
+</html>

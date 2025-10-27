@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practise</title>
+</head>
+
+<body>
+    <h1 id="title">Hello World</h1>
+    <p class="para">This is a paragraph</p>
+    <button id="btn">Click Me</button>
+
+    <script>
+        document.getElementById("title").innerText = "hello Fadi"
+        document.querySelector(".para").style.color = "blue"
+
+        document.getElementById("btn").addEventListener("click", () => {
+            alert("hello fadi")
+            document.querySelector(".para").style.color = "blue"
+            document.getElementById("btn").innerText = "Clicked"
+        })
+
+
+
+
+        
+    </script>
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

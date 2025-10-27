@@ -1,0 +1,289 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", Arial, sans-serif;
+  background: #ffffff;
+  font-size: 15px;
+  line-height: 1.8;
+  font-weight: 500;
+  padding-left: 340px;
+}
+
+/* Header Section */
+.header {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2em 1em;
+  background-image: url(https://themewagon.github.io/elen/images/bg_1.jpg);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  color: #000;
+}
+
+.header img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.hero {
+  font-size: 18px;
+  font-weight: 500;
+  color: #999999;
+  margin-top: 1rem;
+}
+
+.hero h1 {
+  margin: 0.3em 0;
+  color: black;
+}
+
+.hero p {
+  line-height: 1.6;
+}
+
+/* Articles Section */
+.articles-content {
+  text-align: center;
+  margin: 50px 20px 60px;
+  color: #999999;
+}
+
+/* Main Container */
+.main-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding: 20px;
+  background-color: #f4f4f4;
+}
+
+.box {
+  flex: 1 1 300px;
+  max-width: 330px;
+  background-color: #ffffff;
+  padding: 20px 0 15px;
+  margin-top: 12px;
+}
+
+.box-content {
+  margin: 0 10px;
+}
+
+.box-img {
+  height: 299px;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 1rem 0;
+}
+
+/* Sidebar */
+
+.blog-sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 300px;
+  background-color: white;
+  color: black;
+  padding: 30px 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 100;
+  overflow-y: auto;
+  text-align: center;
+}
+
+.sidebar-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.sidebar-main h2 {
+  font-size: 40px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+
+.sidebar-main ul {
+  list-style: none;
+  padding: 0;
+  font-size: 18px;
+  font-weight: 500;
+  color: #999999;
+}
+
+.sidebar-main ul li {
+  margin: 15px 0;
+}
+
+.sidebar-main ul li a {
+  text-decoration: none;
+  color: #999999;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.blog-sidebar ul li a {
+  font-family: "Montserrat", sans-serif;
+  color: rgb(18, 17, 17);
+  text-decoration: none;
+  font-size: 16px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #999999;
+}
+
+.blog-sidebar ul li a:hover {
+  text-decoration: underline;
+}
+.sidebar-footer {
+  font-size: 14px;
+  color: #777;
+  padding-top: 20px;
+  border-top: 1px solid #ccc;
+  width: 100%;
+  text-align: center;
+}
+
+/* Footer */
+footer {
+  margin-top: 15px;
+}
+
+.foot-panel1 {
+  background-color: #132238;
+  color: white;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.85rem;
+}
+
+.foot-panel2 {
+  background-color: #132238;
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 20px;
+}
+
+.foot-panel2 ul {
+  margin: 20px;
+  min-width: 150px;
+}
+
+ul li {
+  list-style-type: none;
+}
+
+ul li a {
+  display: block;
+  font-size: 0.85rem;
+  margin-top: 10px;
+  text-decoration: none;
+  color: #999999;
+}
+
+ul li a:hover {
+  text-decoration: underline;
+}
+
+
+
+/* Responsive area  */
+@media (max-width: 770px) {
+  body {
+    padding-left: 0;
+  }
+
+  .blog-sidebar {
+    display: none;
+  }
+
+  .header {
+    height: auto;
+    background-attachment: scroll;
+  }
+
+  .main-container {
+    gap: 20px;
+    padding: 10px;
+  }
+
+  .box {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  .foot-panel2 {
+    flex-direction: row-reverse;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    font-size: 16px;
+  }
+
+  .hero h1 {
+    font-size: 24px;
+  }
+
+  .articles-content {
+    font-size: 14px;
+  }
+  .blog-sidebar {
+    display: none;
+  }
+}
+/* side bar */
+/* .blog-sidebar {
+    width: 340px;
+    background-color: #f5f5f5;
+    position: fixed;
+    left: -250px; 
+    top: 0;
+    height: 100%;
+    transition: left 0.3s;
+    padding: 20px;
+}
+
+.blog-sidebar.active {
+    left: 0; 
+}
+
+#toggleBtn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    cursor: pointer;
+} */
+
+/* Shift content when sidebar is active */

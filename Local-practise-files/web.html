@@ -1,0 +1,288 @@
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        input {
+            padding: 8px;
+            margin: 10px 0;
+            width: 200px;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Grade Checker</h1>
+        <div>
+            <label for="score">Enter your score (1-100):</label><br>
+            <input type="number" id="score" min="1" max="100"><br>
+            <button onclick="checkGrade()">Check Grade</button>
+        </div>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        // Show welcome popup when page loads
+        window.onload = function() {
+            alert("Welcome to the Grade Checker!");
+        };
+
+        function checkGrade() {
+            // Get the input value
+            let score = document.getElementById("score").value;
+            let result = document.getElementById("result");
+            let grade = "";
+            let color = "";
+
+            // Convert score to number
+            score = Number(score);
+
+            // Validate input
+            if (score < 1 || score > 100 || isNaN(score)) {
+                result.style.backgroundColor = "#ffebee";
+                result.innerHTML = "Please enter a valid number between 1 and 100";
+                return;
+            }
+
+            // Determine grade
+            if (score >= 90) {
+                grade = "A";
+                color = "#e8f5e9"; // Light green
+            } else if (score >= 80) {
+                grade = "B";
+                color = "#e3f2fd"; // Light blue
+            } else if (score >= 70) {
+                grade = "C";
+                color = "#fff3e0"; // Light orange
+            } else if (score >= 60) {
+                grade = "D";
+                color = "#fce4ec"; // Light pink
+            } else {
+                grade = "F";
+                color = "#ffebee"; // Light red
+            }
+
+            // Display result
+            result.style.backgroundColor = color;
+            result.innerHTML = `Your grade is: <strong>${grade}</strong>`;
+            
+            // Show popup with grade
+            alert(`Your grade is: ${grade}`);
+        }
+    </script> -->
+    <!-- 
+     <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cybersecurity Mode </title>
+  <style>
+    body {
+      background-color: black;
+      color: #0f0;
+      font-family: monospace;
+      padding: 20px;
+    }
+    #terminal {
+      background: #000;
+      border: 1px solid #0f0;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 700px;
+      margin: auto;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+
+<div id="terminal">Initializing Cyber Ops...\n</div>
+
+<script>
+  // 1. Roast Console Log
+  const yourFriendName = "Rashid";
+
+  console.log(`
+  [!] Unauthorized user detected...
+  [+] Scanning: ${yourFriendName}.exe
+  [+] Threat level: LOW 
+  [!] Joke attempt detected... failed validation
+  [+] Suggestion: Upgrade brainware v2.0
+  [] Roast complete — returning to real cybersecurity ops...
+  `);
+
+  // 2. Fake Virus Alert
+  setTimeout(() => {
+    alert("⚠️ SECURITY ALERT: Unusual activity detected on this device!\n\nAttempting to patch firewall...\nThreat detected from IP: 127.0.0.1\nPlease remain calm.");
+  }, 3000);
+
+  // 3. Terminal Animation
+  const lines = [
+    "[+] Connecting to target...",
+    "[+] Spoofing MAC address...",
+    "[+] Establishing encrypted tunnel...",
+    "[+] Injecting payload...",
+    "[+] Access granted ",
+    "[!] Surveillance mode enabled.",
+    "[✔] All systems secure."
+  ];
+
+  const terminal = document.getElementById("terminal");
+  let i = 0;
+
+  function typeLine() {
+    if (i < lines.length) {
+      terminal.innerText += "\\n" + lines[i++];
+      setTimeout(typeLine, 1000);
+    }
+  }
+
+  setTimeout(typeLine, 1000);
+</script>
+
+</body>
+</html>
+ -->
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cybersecurity Terminal 💻</title>
+  <style>
+    body {
+      background-color: black;
+      color: #0f0;
+      font-family: monospace;
+      padding: 20px;
+    }
+    #terminal {
+      background: #000;
+      border: 1px solid #0f0;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 700px;
+      margin: auto;
+      white-space: pre-wrap;
+      min-height: 300px;
+    }
+    #input-line {
+      display: inline;
+    }
+    .blinker {
+      display: inline-block;
+      width: 10px;
+      background: #0f0;
+      animation: blink 1s steps(1) infinite;
+    }
+    @keyframes blink {
+      50% { background: transparent; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="terminal">Initializing Cyber Ops...</div>
+
+<script>
+  // 1. Roast Console Log
+  const yourFriendName = "Rashid";
+
+  console.log(`
+  [!] Unauthorized user detected...
+  [+] Scanning: ${yourFriendName}.exe
+  [+] Threat level: LOW 
+  [!] Joke attempt detected... failed validation
+  [+] Suggestion: Upgrade brainware v2.0
+  [] Roast complete — returning to real cybersecurity ops...
+  `);
+
+  // 2. Fake Virus Alert
+  setTimeout(() => {
+    alert(" SECURITY ALERT: Unusual activity detected on this device!\n\nAttempting to patch firewall...\nThreat detected from IP: 127.0.0.1\nPlease remain calm.");
+  }, 3000);
+
+  // 3. Terminal Animation with Input Simulation
+  const lines = [
+    "[+] Connecting to target...",
+    "[+] Spoofing MAC address...",
+    "[+] Establishing encrypted tunnel...",
+    "[+] Injecting payload...",
+    "[+] Access granted ",
+    "[!] Surveillance mode enabled.",
+    "[✔] All systems secure.",
+  ];
+
+  const terminal = document.getElementById("terminal");
+  let i = 0;
+
+  function typeLine() {
+    if (i < lines.length) {
+      terminal.innerText += "\n" + lines[i++];
+      setTimeout(typeLine, 1000);
+    } else {
+      simulateInput();
+    }
+  }
+
+  setTimeout(typeLine, 1000);
+
+  // 4. Fake Terminal Input Simulation
+  function simulateInput() {
+    const inputPrompt = document.createElement("div");
+    inputPrompt.innerHTML = `\n> <span id="input-line"></span><span class="blinker">&nbsp;</span>`;
+    terminal.appendChild(inputPrompt);
+
+    const inputText = "run intrusion --stealth-mode";
+    let j = 0;
+
+    function typeChar() {
+      if (j < inputText.length) {
+        document.getElementById("input-line").innerText += inputText[j++];
+        setTimeout(typeChar, 100);
+      } else {
+        terminal.innerHTML += "\n[+] Command executed successfully.\n[=] Monitoring packets...";
+      }
+    }
+
+    setTimeout(typeChar, 800);
+  }
+</script>
+
+</body>
+</html>
+ -->
+</body>
+</html>

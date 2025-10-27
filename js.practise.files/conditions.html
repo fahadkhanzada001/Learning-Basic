@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>practise</title>
+    <style>
+        /* body {
+            background-color: black;
+        } */
+    </style>
+</head>
+
+<body>
+    <script>
+
+
+
+
+
+
+
+        // fetch("https://api.weatherapi.com/v1/forecast.json?key=abb0369475c54aeb8be120754230907&q=lahore&days=3")
+
+        //     .then((response) => response.json())
+        //     .then((data) => {
+        //         console.log("fetched api data ", data);
+
+        //     })
+        //     .catch((error) => {
+        //         console.error("error fetching data", error);
+
+        //     })
+        // localStorage.setItem("name", "fadi", "fadi");
+        // console.log(localStorage.getItem("name"));
+
+
+
+
+
+        // let abc = 5;
+        // let bca = 5;
+
+        // function addition() {
+        //     let sum = abc + bca;
+        //     return sum;
+        // }
+
+        // if (true) {
+        //     let abc = 5;
+        //     let bca = 6;
+        //     console.log(addition());
+        // }
+
+        // console.log(addition());
+
+
+
+        // for (let count = 0; count < 5; count++) {
+        //     console.log(` ${count} , hey fadi`)
+        // }
+
+        // function callingName(name) {
+        //     console.log(` hello ${name}`)
+
+        // }
+        // callingName("fadi boss")
+
+
+
+
+        // let heyFadi = function () {
+        //     console.log("hey fadi boss1")
+
+        //     for (let count = 0; count < 10; count++) {
+        //         console.log(` ${count} hey fadi boss2`)
+        //     }
+
+
+        // }
+        // heyFadi();
+
+
+
+        // const add = (a, b) => a + b; {
+        //     console.log(add(5 + 5))
+
+        // }
+        // (function () {
+        //     console.log("hello fadi boss3")
+        // })();
+
+
+
+
+
+
+        // function test1(name, age) {
+        //     this.name = name;
+        //     this.age = age;
+
+        // }
+        // let test2 = new test1("fadisejfjwenfjwnfjwnejffnwkj", 25);
+        // console.log(test2.name);
+        // console.log(test2.age);
+
+
+
+
+
+
+        // for (var i = 0; i < 10; i++) {
+        //     document.write(i + ": " + i * 3 + "<br />");
+        // }
+        // // Define 'a' as an array
+        // var a = [1, 2, 3, 4, 5];
+        // var sum = 0;
+        // for (var i = 0; i < a.length; i++) {
+        //     sum += a[i];
+        // }               // parsing an array
+        // // Define 'custOrder' as an array
+        // var custOrder = ["item1", "item2", "item3"];
+        // var html = "";
+        // for (var i of custOrder) {
+        //     html += "<li>" + i + "</li>";
+        // }
+
+
+
+
+        const multiply = function (a, b) {
+            return a - b;
+        };
+
+        console.log(multiply(4, 5));
+
+
+
+
+        function multiply2(a, b) {
+            return a / b
+        }
+        console.log(multiply2(5, 5));
+
+
+
+        setTimeout(function () {
+            console.log("Hello from Anonymous Function");
+        }, 1000);
+
+
+
+
+        function Person(name, age, city, country, profession, hobby, language, food, drink) {
+            this.name = name;
+            this.age = age;
+            this.city = city;
+            this.country = country;
+            this.profession = profession;
+            this.hobby = hobby;
+            this.language = language;
+            this.food = food;
+            this.drink = drink;
+        }
+
+        const user = new Person("Ayaan", 20, "Lahore", "Pakistan", "Student", "Reading", "English", "Pizza", "Juice");
+
+
+        console.log(user);
+
+        console.log(user.name);
+
+
+
+
+        // let i = 10;
+        // while (i < 100) {
+        //     i *= 2;
+        //    console.log(i + ", ");
+        // }
+
+
+        // Function Declaration    
+        function add(a, b) {
+            return a + b;
+
+        }
+
+        console.log(add(5, 5))
+
+
+        // arrow Function
+        const addArrow = (a, b) => {
+            return a + b;
+        };
+        console.log(addArrow(5, 5))
+
+
+
+        setTimeout(function () {
+            console.log(" hello world")
+        }, 2000
+
+        )
+
+
+        const addArrow1 = (a, b) => a + b;
+        console.log(addArrow1(5, 10));
+
+
+
+
+        // higher order function
+
+        function addition(a, b, callback) {
+
+            return callback(a, b);
+
+        }
+        console.log(addition(5, 50, (x, y) => x * y));
+
+
+
+
+
+
+
+        let promise = new Promise((resolve, reject) => {
+            let dataMilGya = true;
+
+            if (dataMilGya) {
+                resolve("Data loaded successfully!");
+            } else {
+                reject("Error in loading data!");
+            }
+
+        });
+
+        promise
+            .then(result => console.log(result))
+            .catch(error => console.log(error));
+
+
+
+
+
+
+        function document1(a, b) {
+            return a + b
+        }
+        console.log(document1(70, 70))
+
+
+        for (let i = 0; i <= 5; i++) {
+            console.log("0")
+        }
+
+
+
+        let name = "fadikhan";
+        console.log(`${name.length} characters`);
+
+
+
+
+        let name2 = "fadi";
+        console.log(`${name2.toUpperCase()} convert it into upper case `);
+
+
+
+        // let name3 = prompt("Enter a string value:");
+        // console.log(`${name3.includes("fadi")}   bolean response `);
+        // if(name3.includes("fadi")){
+        //     console.log("yes it includes fa");
+        // } else {
+        //     console.log("no it does not includes fa");
+        // }
+
+        "I love JS".indexOf("love"); // 2
+
+
+    </script>
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #f0f0f0;
+}
+
+.board {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-gap: 5px;
+  margin: 50px auto;
+  width: 310px;
+}
+.btn1 {
+  background-color: rgb(200, 202, 202);
+  border: none;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.btn1:hover {
+  background-color: gray;
+  color: white;
+}
+.cell {
+  width: 100px;
+  height: 100px;
+  font-size: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: lightgray;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.cell:hover {
+  background-color: rgb(156, 154, 154);
+  color: white;
+}
+
+.winning-line {
+  position: absolute;
+  height: 5px;
+  background-color: gray;
+  top: 0;
+  left: 0;
+  transform-origin: center;
+  z-index: 2;
+}

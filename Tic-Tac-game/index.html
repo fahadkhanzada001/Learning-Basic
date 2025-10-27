@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic Tac Toe game </title>
+    <link rel="stylesheet" href="./index.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+
+<body>
+    <div class="app">
+        <header>
+            <div>
+                <h1>🎮 Tic Tac Toe</h1>
+                <div class="tag">Created By  FADI</div>
+            </div>
+            <div class="row">
+                <button id="resetBtn" class="primary">↻ New Round</button>
+                <button id="resetScoresBtn" class="danger">✦ Reset Scores</button>
+            </div>
+        </header>
+
+        <section class="panel controls">
+            <div class="row">
+                <label for="mode">Mode:</label>
+                <select id="mode">
+                    <option value="pvp">Player vs Player</option>
+                    <option value="cpu-easy">Player vs Computer (Easy)</option>
+                    <option value="cpu-hard">Player vs Computer (Unbeatable)</option>
+                </select>
+            </div>
+            <div class="row">
+                <label for="firstMove">First move:</label>
+                <select id="firstMove">
+                    <option value="X">X (You)</option>
+                    <option value="O">O (Computer)</option>
+                    <option value="R">Random</option>
+                </select>
+            </div>
+        </section>
+
+        <div class="board" id="board" role="grid" aria-label="Tic Tac Toe Board"></div>
+
+        <section class="panel">
+            <div class="status" id="status">Ready? Choose a mode and start!</div>
+            <div class="score" id="score">
+                <div class="pill">X Wins: <span class="v" id="xWins">0</span></div>
+                <div class="pill">O Wins: <span class="v" id="oWins">0</span></div>
+                <div class="pill">Draws: <span class="v" id="draws">0</span></div>
+            </div>
+        </section>
+
+    </div>
+
+    <script src="./index.js"></script>
+</body>

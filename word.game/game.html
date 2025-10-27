@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>game</title>
+    <link rel="stylesheet" href="./game.css">
+</head>
+
+<body>
+    <div class="game-container">
+        <h2>Guess the Secret Word!</h2>
+        <p id="hint">Hint: ...</p>
+        <input type="text" id="userInput" placeholder="Enter your guess" autocomplete="off" autofocus>
+        <button onclick="checkGuess()">Guess</button>
+        <div class="result" id="resultDisplay"></div>
+    </div>
+
+    <script>
+
+        // let correct = "fadi";
+        // let input = prompt("Enter letter string:");
+        // let result = "";
+
+        // if (input[0] == correct[0]) {
+        //     result += input[0];
+        // } else if (correct.includes(input[0])) {
+        //     result += "#";
+        // } else {
+        //     result += "~";
+        // }
+
+        // if (input[1] == correct[1]) {
+        //     result += input[1];
+        // } else if (correct.includes(input[1])) {
+        //     result += "#";
+        // } else {
+        //     result += "~";
+        // }
+
+        // if (input[2] == correct[2]) {
+        //     result += input[2];
+        // } else if (correct.includes(input[2])) {
+        //     result += "#";
+        // } else {
+        //     result += "~";
+        // }
+
+        // if (input[3] == correct[3]) {
+        //     result += input[3];
+        // } else if (correct.includes(input[3])) {
+        //     result += "#";
+        // } else {
+        //     result += "~";
+        // }
+
+        // if (input[4] == correct[4]) {
+        //     result += input[4];
+        // } else if (correct.includes(input[4])) {
+        //     result += "#";
+        // } else {
+        //     result += "~";
+        // }
+
+        // if (input[5] == correct[5]) {
+        //     result += input[5];
+        // } else if (correct.includes(input[5])) {
+        //     result += "#";
+        // } else {
+        //     result += "~";
+        // }
+
+        // if (input[6] == correct[6]) {
+        //     result += input[6];
+        // } else if (correct.includes(input[6])) {
+        //     result += "#";
+        // } else {
+        //     result += "~";
+        // }
+        // console.log(result);
+
+
+
+
+        // let user = "hello"
+        // let output = ""
+
+        // let userInput = prompt("Enter a string (should be exactly 5 characters):");
+
+        // if (userInput.length == 5) {
+        //     if (userInput[0] == user[0]) {
+        //         output += userInput[0];
+        //     } else if (user.includes(userInput[0])) {
+        //         output += "#";
+        //     } else {
+        //         output += "~"
+        //     }
+
+        //     if (userInput[1] == user[1]) {
+        //         output += userInput[1];
+        //     } else if (user.includes(userInput[1])) {
+        //         output += "#"
+        //     } else {
+        //         output += "~";
+        //     }
+
+        //     if (userInput[2] == user[2]) {
+        //         output += userInput[2];
+        //     } else if (user.includes(userInput[2])) {
+        //         output += "#";
+        //     } else {
+        //         output += "~";
+        //     }
+
+        //     if (userInput[3] == user[3]) {
+        //         output += userInput[3];
+        //     } else if (user.includes(userInput[3])) {
+        //         output += "#";
+        //     } else {
+        //         output += "~";
+        //     }
+
+        //     if (userInput[4] == user[4]) {
+        //         output += userInput[4];
+        //     } else if (user.includes(userInput[4])) {
+        //         output += "#";
+        //     } else {
+        //         output += "~";
+        //     }
+        // } else {
+        //     console.log(" Invalid The string length is not 5, it is " + userInput.length + " characters.",);
+        // }
+        // console.log(output);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        const words = [
+            { word: "apple", hint: "fruit" },
+            { word: "python", hint: "programming language" },
+            { word: "camera", hint: "photography" },
+            { word: "lion", hint: "animal" },
+            { word: "moon", hint: "space object" },
+            { word: "robot", hint: "technology" },
+            { word: "guitar", hint: "musical instrument" },
+            { word: "ocean", hint: "nature" },
+            { word: "computer", hint: "technology" },
+            { word: "phone", hint: "communication device" },
+            { word: "table", hint: "furniture" },
+            { word: "keyboard", hint: "computer accessory" },
+            { word: "television", hint: "entertainment device" },
+            { word: "mountain", hint: "nature" },
+            { word: "city", hint: "urban area" },
+            { word: "river", hint: "water body" },
+            { word: "cloud", hint: "weather phenomenon" },
+            { word: "sun", hint: "star" },
+            { word: "flower", hint: "plant" },
+            { word: "beach", hint: "coastal area" },
+            { word: "chair", hint: "furniture" },
+            { word: "desk", hint: "furniture" },
+            { word: "lamp", hint: "lighting" },
+            { word: "window", hint: "part of house" },
+            { word: "door", hint: "part of house" },
+            { word: "roof", hint: "part of house" },
+            { word: "wall", hint: "part of house" },
+            { word: "floor", hint: "part of house" },
+            { word: "ceiling", hint: "part of house" },
+            { word: "garden", hint: "outdoor area" },
+            { word: "bottle", hint: "container" },
+            { word: "car", hint: "vehicle" },
+            { word: "dog", hint: "animal" },
+            { word: "banana", hint: "fruit" },
+            { word: "train", hint: "vehicle" },
+            { word: "teacher", hint: "profession" },
+            { word: "exam", hint: "education-related" },
+            { word: "love", hint: "emotion" },
+            { word: "forest", hint: "nature" },
+            { word: "piano", hint: "musical instrument" },
+            { word: "book", hint: "reading material" },
+            { word: "moonlight", hint: "night illumination" },
+            { word: "camera", hint: "photography" },
+            { word: "television", hint: "entertainment device" },
+            { word: "keyboard", hint: "computer accessory" },
+            { word: "piano", hint: "musical instrument" },
+            { word: "robot", hint: "technology" },
+            { word: "ocean", hint: "nature" },
+            { word: "computer", hint: "technology" },
+            { word: "phone", hint: "communication device" }
+
+        ];
+
+        const randomIndex = Math.floor(Math.random() * words.length);
+        const secretWord = words[randomIndex].word.toLowerCase();
+        const wordHint = words[randomIndex].hint;
+
+        document.getElementById("hint").innerText = `Hint: ${wordHint}`;
+
+        function checkGuess() {
+            const userGuess = document.getElementById("userInput").value.toLowerCase();
+            let result = "";
+
+            for (let i = 0; i < secretWord.length; i++) {
+                const letter = userGuess[i];
+                if (letter === secretWord[i]) {
+                    result += letter;
+                } else if (secretWord.includes(letter)) {
+                    result += "#";
+                } else {
+                    result += "~";
+                }
+            }
+
+            console.log("Your Guess Feedback:", result);
+            console.log("Secret Word:", secretWord);
+            console.log("User Guess:", userGuess);
+
+
+            const resultDisplay = document.getElementById("resultDisplay");
+            if (userGuess === secretWord) {
+                resultDisplay.innerHTML = `Congratulations You guessed it right:${secretWord}`;
+            } else {
+                resultDisplay.innerHTML = `wrong guess your word Feedback: ${result}`;
+            }
+
+        }
+        console.log("Secret Word:", secretWord);
+
+        let input = document.getElementById("userInput");
+        input.addEventListener("keypress", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                checkGuess();
+            }
+        });
+
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // boss area  // 
+        // const words = [
+        //     { word: "apple", hint: "fruit" },
+        //     { word: "banana", hint: "fruit" },
+        //     { word: "car", hint: "vehicle" },
+        //     { word: "bottle", hint: "object" },
+        //     { word: "dog", hint: "animal" },
+        //     { word: "python", hint: "programming language" },
+        //     { word: "guitar", hint: "musical instrument" },
+        //     { word: "window", hint: "part of house" },
+        //     { word: "moon", hint: "space object" },
+        //     { word: "book", hint: "object used for reading" },
+        //     { word: "lion", hint: "animal" },
+        //     { word: "train", hint: "vehicle" },
+        //     { word: "teacher", hint: "profession" },
+        //     { word: "exam", hint: "education-related" },
+        //     { word: "love", hint: "emotion" },
+        //     { word: "flower", hint: "plant" },
+        //     { word: "robot", hint: "technology" },
+        //     { word: "ocean", hint: "nature" },
+        //     { word: "computer", hint: "technology" },
+        //     { word: "phone", hint: "communication device" },
+        //     { word: "table", hint: "furniture" },
+        //     { word: "keyboard", hint: "computer accessory" },
+        //     { word: "camera", hint: "photography" },
+        //     { word: "television", hint: "entertainment device" },
+        //     { word: "mountain", hint: "nature" },
+        //     { word: "city", hint: "urban area" },
+        //     { word: "river", hint: "water body" },
+        //     { word: "cloud", hint: "weather phenomenon" },
+        //     { word: "sun", hint: "star" },
+        //     { word: "moonlight", hint: "night illumination" },
+        //     { word: "forest", hint: "nature" },
+        //     { word: "beach", hint: "coastal area" },
+        //     { word: "keyboard", hint: "computer accessory" },
+        //     { word: "piano", hint: "musical instrument" },
+        //     { word: "camera", hint: "photography" },
+        //     { word: "television", hint: "entertainment device" },
+        //     { word: "mountain", hint: "nature" },
+        //     { word: "city", hint: "urban area" },
+        //     { word: "river", hint: "water body" },
+        //     { word: "cloud", hint: "weather phenomenon" },
+        //     { word: "sun", hint: "star" },
+        //     { word: "moonlight", hint: "night illumination" },
+        //     { word: "forest", hint: "nature" },
+        //     { word: "beach", hint: "coastal area" },
+        //     { word: "chair", hint: "furniture" },
+        //     { word: "desk", hint: "furniture" },
+        //     { word: "lamp", hint: "lighting" },
+        //     { word: "window", hint: "part of house" },
+        //     { word: "door", hint: "part of house" },
+        //     { word: "roof", hint: "part of house" },
+        //     { word: "wall", hint: "part of house" },
+        //     { word: "floor", hint: "part of house" },
+        //     { word: "ceiling", hint: "part of house" },
+        //     { word: "garden", hint: "outdoor area" }
+        // ];
+
+        // // Step 1: Random word pick
+        // const randomword = Math.floor(Math.random() * words.length);
+        // const secretWord = words[randomword].word.toLowerCase();
+        // const wordHint = words[randomword].hint;
+
+        // // Step 2: User input
+        // const userGuess = prompt(`Guess the secret word!\n(Hint: it's related to "${wordHint}")`);
+
+        // if (!userGuess) {
+        //     alert("You didn't enter anything!");
+        // } else {
+        //     const guess = userGuess.toLowerCase();
+        //     let result = "";
+
+        //     for (let i = 0; i < secretWord.length; i++) {
+        //         const letter = guess[i];
+
+        //         if (letter === secretWord[i]) {
+        //             result += letter; // correct letter and correct position
+        //         } else if (secretWord.includes(letter)) {
+        //             result += "#"; // letter exists but wrong position
+        //         } else {
+        //             result += "~"; // letter doesn't exist
+        //         }
+        //     }
+
+        //     console.log("Your Guess Feedback:", result);
+
+        //     if (guess === secretWord) {
+        //         alert("Congratulations! You guessed it right!");
+        //     } else {
+        //         alert(` Wrong guess!\nCorrect answer was: "${secretWord}"`);
+        //     }
+        // }
+
+        // console.log("Secret Word:", secretWord);
+
+
+
+
+
+
+
+
+
+
+
+
+        // console.log(words[1].word);
+        // console.log(words[1].hint);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // const words = [
+        //
+        // ];
+
+        // //  2. Pick random word from array
+        // let randomIndex = Math.floor(Math.random() * words.length);
+        // let secretWord = words[randomIndex];
+
+        // //  3. Ask user to guess the word
+        // const userGuess = prompt("Guess the secret word (hint: it's something common!)");
+
+        // if (userGuess.toLowerCase() === secretWord.toLowerCase()) {
+        //     console.log(" Correct! You guessed it right!");
+        // } else {
+        //     console.log(` Wrong! The correct word was "${secretWord}"`);
+        // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

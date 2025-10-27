@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fadi's Responsive Gallery</title>
+    <link rel="stylesheet" href="./new1.css">
+   
+</head>
+
+<body>
+    <h3>Calculator</h3>
+
+    <input type="number" id="firstNum" placeholder="Enter first number" />
+    <input type="number" id="secondNum" placeholder="Enter second number" />
+    <br><br>
+    <button onclick="addNumbers()">Add</button>
+    <button onclick="subtractNumbers()">Subtract</button>
+    <button onclick="multiplyNumbers()">Multiply</button>
+    <button onclick="divideNumbers()">Divide</button><br><br><br>
+    <p id="result"></p>
+
+    <script>
+        function addNumbers() {
+            let n1 = document.getElementById("firstNum").value;
+            let n2 = document.getElementById("secondNum").value;
+
+            let sum = Number(n1) + Number(n2);
+            document.getElementById("result").innerText = "Sum is: " + sum;
+        }
+
+        function subtractNumbers() {
+            let n1 = document.getElementById("firstNum").value;
+            let n2 = document.getElementById("secondNum").value;
+
+            let difference = Number(n1) - Number(n2);
+            document.getElementById("result").innerText = "Difference is: " + difference;
+        }
+        function multiplyNumbers() {
+            let n1 = document.getElementById("firstNum").value;
+            let n2 = document.getElementById("secondNum").value;
+            
+            let product = Number(n1) * Number(n2);
+            document.getElementById("result").innerText = "Product is: " + product;
+        }
+        function divideNumbers() {
+            let n1 = document.getElementById("firstNum").value;
+            let n2 = document.getElementById("secondNum").value;
+            if (n2 == 0) {
+                document.getElementById("result").innerText = "Cannot divide by zero!";
+            } else {
+                let resultElement = Number(n1) / Number(n2);
+                document.getElementById("result").innerText = "Result is: " + resultElement;
+            }
+
+        }
+
+
+        // // Universal Form
+        // function btnClick() {
+        //     let input = document.getElementById("input");
+        //     console.log(input.value);
+        //     alert("You entered: " + input.value);
+        // }
+    </script>
+
+
+
+    </script>
+    <!-- // // // --><br><br>
+    <!-- <form id="myForm">
+        <input type="text" name="username" placeholder="Enter username" />
+        <input type="email" name="email" placeholder="Enter email" />
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        let form = document.getElementById("myForm");
+
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            let username = form.username.value;
+            let email = form.email.value;
+
+            console.log("Username:", username);
+            console.log("Email:", email);
+
+            alert(`Username: ${username}, Email: ${email}`);
+        });
+    </script> -->
+
+
+
+
+
+
+
+    <!-- <h2>Universal Form </h2>
+    <input type="text" id="input" />
+    <button onclick="btnClick()">Submit</button> <br><br> -->
+
+
+    <!-- <form id="myForm">
+        <input type="text" name="fullname" placeholder="Full Name"> <br><br>
+        <input type="email" name="email" placeholder="Email"><br><br>
+        <input type="password" name="password" placeholder="Password"><br><br>
+        <input type="number" name="age" placeholder="Age"><br><br>
+        <textarea name="bio" placeholder="Short Bio"></textarea><br><br>
+        <button type="submit">Submit</button>
+    </form> 
+
+  <pre id="output"></pre> -->
+
+
+
+    <!-- <script>
+        function btnClick() {
+            let input = document.getElementById("input")
+
+            console.log(input.value)
+        }
+
+
+
+
+
+
+
+
+
+
+    
+        // const form = document.getElementById("myForm");
+        // const output = document.getElementById("output");
+
+        // form.addEventListener("submit", function (e) {
+        //     e.preventDefault();
+
+        //     const formData = {};
+        //     const inputs = form.querySelectorAll("input, textarea, select");
+
+        //     inputs.forEach(input => {
+        //         formData[input.name] = input.value;
+        //     });
+
+        //     console.log("Stored Form Data:", formData);
+        //     output.innerText = JSON.stringify(formData, null, 2);
+        // }); -->
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
